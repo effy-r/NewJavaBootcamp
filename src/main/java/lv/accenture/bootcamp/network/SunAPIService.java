@@ -19,7 +19,7 @@ public class SunAPIService {
 	@Value("${API.request}")
 	private String requestUrl;
 
-	public void getSunrise(String requestedDate) {
+	public String getSunrise(String requestedDate) {
 
 		try {
 			URL url = new URL(requestUrl + "&date" + requestedDate);
@@ -53,7 +53,7 @@ public class SunAPIService {
 
 			String sunrise = sunApiResponse.getResults().getSunrise();
 
-			System.out.println(sunrise);
+			System.out.println("SunApi1: " + sunrise);
 
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss aa");
 			// HH - hours, if time was 05:16:46, hh if time 05:16:46
@@ -61,7 +61,14 @@ public class SunAPIService {
 			Date sunriseDate = simpleDateFormat.parse(sunrise);
 			sunriseDate = new Date(sunriseDate.getTime() + (2 * 60 * 60 * 1000));
 			
-			System.out.println(sunriseDate);
+			SimpleDateFormat lastFormat = new SimpleDateFormat("");
+
+			System.out.println("SunriseAPI2:" + sunriseDate);
+			String newDate = sunriseDate.toString();
+
+			System.out.println("SunAPIService: " + newDate);
+
+			return newDate;
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

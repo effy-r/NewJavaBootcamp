@@ -3,8 +3,7 @@ package lv.accenture.bootcamp.network;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateConversions 
-{
+public class DateConversions {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
@@ -27,17 +26,16 @@ public class DateConversions
 		SimpleDateFormat dateFormated3 = new SimpleDateFormat("dd/MM/yyyy kk:mm:ss aa z");
 
 		System.out.println(dateFormated3.format(currentDate));
-		
+
 		Date timeIs = dateFormated1.parse("02.02.2020");
 		String dateString = dateFormated1.format(currentDate);
 		Date parsedDate = dateFormated1.parse("02.02.2020");
 		long time = timeIs.getTime();
-		
+
 		System.out.println(timeIs);
 		System.out.println(time);
-		
+
 		parsedDate = dateFormated1.parse(dateString);
-		
 
 		// https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html -
 		// read about it here
