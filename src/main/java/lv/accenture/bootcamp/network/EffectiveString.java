@@ -20,5 +20,7 @@ public class EffectiveString {
 		
 		String s2 = str.toString();
 		System.out.println(s2);
+		
+		//String builder can be used instead of multiple strings as it allows to save memmory
 	}
 }

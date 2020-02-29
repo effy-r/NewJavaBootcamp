@@ -1,6 +1,7 @@
 package lv.accenture.bootcamp;
 
 import lv.accenture.bootcamp.io.conveyor.Pipeline;
+import lv.accenture.bootcamp.network.SunAPIService;
 import lv.accenture.bootcamp.spring.GoodbyeService;
 import lv.accenture.bootcamp.spring.GreetingService;
 import lv.accenture.bootcamp.spring.NotificationService;
@@ -14,44 +15,41 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AppLauncher implements CommandLineRunner {
 
-    @Autowired
-    private GreetingService greetingService;
+	@Autowired
+	private GreetingService greetingService;
 
-    @Autowired
-    private GoodbyeService goodbyeService;
+	@Autowired
+	private GoodbyeService goodbyeService;
 
-    @Autowired
-    private Pipeline pipeline;
-    
-    @Autowired
-    private NotificationService notificationService;
+	@Autowired
+	private Pipeline pipeline;
 
-    public static void main(String[] args) {
-        SpringApplication.run(AppLauncher.class);
-    }
-    
-    User user = new User("Jhon Doe", "47268598", "john.doe@gmail.com");
-    
-    //notificationService.spamPerson(user);
+	@Autowired
+	private NotificationService notificationService;
 
-    @Override
-    public void run(String... args) throws Exception {
-        greetingService.greet("world");
-        goodbyeService.sayGoodbye("world");
-        pipeline.performConversions();
-        
-        User user = new User("Jhon Doe", "47268598", "john.doe@gmail.com");
-        
-        
-        notificationService.spamPerson(user);
-    
-    
-//        User user = new User("Jhon Doe", "47268598", "john.doe@gmail.com");
-//        
-//        notificationService.spamPerson(user);
-       
-        
-       
-        
-    }
+	// 29.02.2020
+	@Autowired
+	private SunAPIService sunAPIService;
+
+	public static void main(String[] args) {
+		SpringApplication.run(AppLauncher.class);
+	}
+
+	User user = new User("Jhon Doe", "47268598", "john.doe@gmail.com");
+
+	// notificationService.spamPerson(user);
+
+	@Override
+	public void run(String... args) throws Exception {
+		greetingService.greet("world");
+		goodbyeService.sayGoodbye("world");
+		pipeline.performConversions();
+
+		User user = new User("Jhon Doe", "47268598", "john.doe@gmail.com");
+
+		notificationService.spamPerson(user);
+//29.02.2020
+		sunAPIService.getSunrise("today");
+
+	}
 }
